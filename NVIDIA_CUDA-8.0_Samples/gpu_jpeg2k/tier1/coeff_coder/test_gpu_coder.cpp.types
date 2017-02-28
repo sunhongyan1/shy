@@ -1,8 +1,0 @@
-digraph "GG" {
-node [
-  fontsize = "12"
-];
-    "node37" [ label="types" shape="diamond"];
-    "node43" [ label="/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/freeimage/lib/libfreeimage.so" shape="ellipse"];
-    "node37" -> "node43" // types -> /home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/freeimage/lib/libfreeimage.so
-}

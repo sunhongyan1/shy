@@ -1,2 +1,0 @@
-/usr/bin/ar qc libgpu_coeff_coder.a  CMakeFiles/gpu_coeff_coder.dir/gpu_coeff_coder.cpp.o gpu_coeff_coder_generated_gpu_coeff_coder2.cu.o gpu_coeff_coder_generated_coeff_coder_pcrd.cu.o link.o link1.o 
-/usr/bin/ranlib libgpu_coeff_coder.a

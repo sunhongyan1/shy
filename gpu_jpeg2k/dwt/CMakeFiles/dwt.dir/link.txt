@@ -1,2 +1,0 @@
-/usr/bin/ar qc libdwt.a  dwt_generated_dwt.cu.o dwt_generated_fwt.cu.o dwt_generated_fwt_new.cu.o dwt_generated_fwt_1d.cu.o dwt_generated_iwt_1d.cu.o dwt_generated_iwt.cu.o dwt_generated_iwt_new.cu.o dwt_generated_kernel.cu.o
-/usr/bin/ranlib libdwt.a

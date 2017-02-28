@@ -1,2 +1,0 @@
-/usr/bin/ar qc libgpu_bpc.a  CMakeFiles/gpu_bpc.dir/bpc.cpp.o CMakeFiles/gpu_bpc.dir/test_gpu_bpc.cpp.o gpu_bpc_generated_gpu_bpc.cu.o gpu_bpc_generated_gpu_convert.cu.o
-/usr/bin/ranlib libgpu_bpc.a

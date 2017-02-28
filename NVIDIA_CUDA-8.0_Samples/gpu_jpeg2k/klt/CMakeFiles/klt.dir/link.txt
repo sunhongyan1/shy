@@ -1,2 +1,0 @@
-/usr/bin/ar qc libklt.a  CMakeFiles/klt.dir/blocks.c.o klt_generated_klt.cu.o klt_generated_gs.cu.o klt_generated_analysis.cu.o klt_generated_adjust.cu.o klt_generated_mct_transform.cu.o klt_generated_reduce.cu.o klt_generated_mean_adjust_data.cu.o klt_generated_shift.cu.o klt_generated_calc_cov.cu.o klt_generated_calc_cov_mat.cu.o
-/usr/bin/ranlib libklt.a

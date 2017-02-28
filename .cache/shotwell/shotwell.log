@@ -1,4 +1,0 @@
-L 3115 2017-02-23 09:09:18 [MSG] main.vala:385: Shotwell Photo Manager 0.22.0
-L 3115 2017-02-23 09:09:18 [MSG] main.vala:43: Verifying database ...
-L 3115 2017-02-23 09:09:18 [MSG] VideoSupport.vala:377: interpreter state cookie not found; assuming all video thumbnails are out of date
-L 3115 2017-02-23 09:09:19 [WRN] ImportPage.vala:1158: Unable to initialize camera: Could not claim the USB device (-53)

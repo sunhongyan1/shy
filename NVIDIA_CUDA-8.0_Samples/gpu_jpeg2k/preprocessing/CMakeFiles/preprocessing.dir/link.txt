@@ -1,2 +1,0 @@
-/usr/bin/ar qc libpreprocessing.a  CMakeFiles/preprocessing.dir/mct.c.o preprocessing_generated_preprocess_gpu.cu.o
-/usr/bin/ranlib libpreprocessing.a

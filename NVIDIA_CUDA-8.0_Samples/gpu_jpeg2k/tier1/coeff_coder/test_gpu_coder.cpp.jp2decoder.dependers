@@ -1,6 +1,0 @@
-digraph "GG" {
-node [
-  fontsize = "12"
-];
-    "node3" [ label="jp2decoder" shape="house"];
-}

@@ -1,6 +1,0 @@
-digraph "GG" {
-node [
-  fontsize = "12"
-];
-    "node10" [ label="gpu_bpc" shape="diamond"];
-}
