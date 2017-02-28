@@ -1,0 +1,158 @@
+10:50:16 941412 [parse_config] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/config/parameters.c:99) Loading: (null)
+10:50:17  32064 [init_tiles] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:331) w:512 h:512 no_com:3 area:0 t_w:512 t_h:512 t_x:1 t_y:1 no_t:1
+tile no:0 ,tlx:0,tly:0,brx:512,bry:512,width:512,height:512
+10:50:17  32107 [init_tile_comps] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:269) no:0 tlx:0 tly:0 brx:512 bry:512 w:512 h:512
+tile_comp no:0 w:512 h:512,cblk_w:64,cblk_h:64
+10:50:17  32306 [init_resolution_lvls] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:208) w:512 h:512 num_dlvls:3 num_rlvls:4 cblk_exp_w:6 cblk_exp_h:6 cblk_w:64 cblk_h:64
+n=8 , parent_tile tlx=0 , tly=0 , blx=512 , bry=512 
+res_lvl no:0 num_subbands:1,dec_lvl_no:3,tlx:0,tly:0,brx:64,bry:64,width:64,height:64,num_vprc:1,num_hprc:1,num_prcs:1
+tlx:0 tly:0 Num cblks:1 Sb w:64 Sb h:64
+10:50:17  32335 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:0 tly:0 brx:64 bry:64 w:64 h:64 num_xcblks:1 num_ycblks:1 num_cblks:1
+n=4 , parent_tile tlx=0 , tly=0 , blx=512 , bry=512 
+res_lvl no:1 num_subbands:3,dec_lvl_no:3,tlx:0,tly:0,brx:128,bry:128,width:128,height:128,num_vprc:1,num_hprc:1,num_prcs:1
+tlx:64 tly:0 Num cblks:1 Sb w:64 Sb h:64
+10:50:17  32366 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:64 tly:0 brx:128 bry:64 w:64 h:64 num_xcblks:1 num_ycblks:1 num_cblks:1
+tlx:0 tly:64 Num cblks:1 Sb w:64 Sb h:64
+10:50:17  32381 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:0 tly:64 brx:64 bry:128 w:64 h:64 num_xcblks:1 num_ycblks:1 num_cblks:1
+tlx:64 tly:64 Num cblks:1 Sb w:64 Sb h:64
+10:50:17  32395 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:64 tly:64 brx:128 bry:128 w:64 h:64 num_xcblks:1 num_ycblks:1 num_cblks:1
+n=2 , parent_tile tlx=0 , tly=0 , blx=512 , bry=512 
+res_lvl no:2 num_subbands:3,dec_lvl_no:2,tlx:0,tly:0,brx:256,bry:256,width:256,height:256,num_vprc:1,num_hprc:1,num_prcs:1
+tlx:128 tly:0 Num cblks:4 Sb w:128 Sb h:128
+10:50:17  32412 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:128 tly:0 brx:256 bry:128 w:128 h:128 num_xcblks:2 num_ycblks:2 num_cblks:4
+tlx:0 tly:128 Num cblks:4 Sb w:128 Sb h:128
+10:50:17  32426 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:0 tly:128 brx:128 bry:256 w:128 h:128 num_xcblks:2 num_ycblks:2 num_cblks:4
+tlx:128 tly:128 Num cblks:4 Sb w:128 Sb h:128
+10:50:17  32439 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:128 tly:128 brx:256 bry:256 w:128 h:128 num_xcblks:2 num_ycblks:2 num_cblks:4
+n=1 , parent_tile tlx=0 , tly=0 , blx=512 , bry=512 
+res_lvl no:3 num_subbands:3,dec_lvl_no:1,tlx:0,tly:0,brx:512,bry:512,width:512,height:512,num_vprc:1,num_hprc:1,num_prcs:1
+tlx:256 tly:0 Num cblks:16 Sb w:256 Sb h:256
+10:50:17  32456 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:256 tly:0 brx:512 bry:256 w:256 h:256 num_xcblks:4 num_ycblks:4 num_cblks:16
+tlx:0 tly:256 Num cblks:16 Sb w:256 Sb h:256
+10:50:17  32470 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:0 tly:256 brx:256 bry:512 w:256 h:256 num_xcblks:4 num_ycblks:4 num_cblks:16
+tlx:256 tly:256 Num cblks:16 Sb w:256 Sb h:256
+10:50:17  32490 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:256 tly:256 brx:512 bry:512 w:256 h:256 num_xcblks:4 num_ycblks:4 num_cblks:16
+tile_comp no:1 w:512 h:512,cblk_w:64,cblk_h:64
+10:50:17  32616 [init_resolution_lvls] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:208) w:512 h:512 num_dlvls:3 num_rlvls:4 cblk_exp_w:6 cblk_exp_h:6 cblk_w:64 cblk_h:64
+n=8 , parent_tile tlx=0 , tly=0 , blx=512 , bry=512 
+res_lvl no:0 num_subbands:1,dec_lvl_no:3,tlx:0,tly:0,brx:64,bry:64,width:64,height:64,num_vprc:1,num_hprc:1,num_prcs:1
+tlx:0 tly:0 Num cblks:1 Sb w:64 Sb h:64
+10:50:17  32701 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:0 tly:0 brx:64 bry:64 w:64 h:64 num_xcblks:1 num_ycblks:1 num_cblks:1
+n=4 , parent_tile tlx=0 , tly=0 , blx=512 , bry=512 
+res_lvl no:1 num_subbands:3,dec_lvl_no:3,tlx:0,tly:0,brx:128,bry:128,width:128,height:128,num_vprc:1,num_hprc:1,num_prcs:1
+tlx:64 tly:0 Num cblks:1 Sb w:64 Sb h:64
+10:50:17  32724 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:64 tly:0 brx:128 bry:64 w:64 h:64 num_xcblks:1 num_ycblks:1 num_cblks:1
+tlx:0 tly:64 Num cblks:1 Sb w:64 Sb h:64
+10:50:17  32740 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:0 tly:64 brx:64 bry:128 w:64 h:64 num_xcblks:1 num_ycblks:1 num_cblks:1
+tlx:64 tly:64 Num cblks:1 Sb w:64 Sb h:64
+10:50:17  32758 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:64 tly:64 brx:128 bry:128 w:64 h:64 num_xcblks:1 num_ycblks:1 num_cblks:1
+n=2 , parent_tile tlx=0 , tly=0 , blx=512 , bry=512 
+res_lvl no:2 num_subbands:3,dec_lvl_no:2,tlx:0,tly:0,brx:256,bry:256,width:256,height:256,num_vprc:1,num_hprc:1,num_prcs:1
+tlx:128 tly:0 Num cblks:4 Sb w:128 Sb h:128
+10:50:17  32774 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:128 tly:0 brx:256 bry:128 w:128 h:128 num_xcblks:2 num_ycblks:2 num_cblks:4
+tlx:0 tly:128 Num cblks:4 Sb w:128 Sb h:128
+10:50:17  32788 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:0 tly:128 brx:128 bry:256 w:128 h:128 num_xcblks:2 num_ycblks:2 num_cblks:4
+tlx:128 tly:128 Num cblks:4 Sb w:128 Sb h:128
+10:50:17  32802 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:128 tly:128 brx:256 bry:256 w:128 h:128 num_xcblks:2 num_ycblks:2 num_cblks:4
+n=1 , parent_tile tlx=0 , tly=0 , blx=512 , bry=512 
+res_lvl no:3 num_subbands:3,dec_lvl_no:1,tlx:0,tly:0,brx:512,bry:512,width:512,height:512,num_vprc:1,num_hprc:1,num_prcs:1
+tlx:256 tly:0 Num cblks:16 Sb w:256 Sb h:256
+10:50:17  32826 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:256 tly:0 brx:512 bry:256 w:256 h:256 num_xcblks:4 num_ycblks:4 num_cblks:16
+tlx:0 tly:256 Num cblks:16 Sb w:256 Sb h:256
+10:50:17  32844 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:0 tly:256 brx:256 bry:512 w:256 h:256 num_xcblks:4 num_ycblks:4 num_cblks:16
+tlx:256 tly:256 Num cblks:16 Sb w:256 Sb h:256
+10:50:17  32859 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:256 tly:256 brx:512 bry:512 w:256 h:256 num_xcblks:4 num_ycblks:4 num_cblks:16
+tile_comp no:2 w:512 h:512,cblk_w:64,cblk_h:64
+10:50:17  33012 [init_resolution_lvls] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:208) w:512 h:512 num_dlvls:3 num_rlvls:4 cblk_exp_w:6 cblk_exp_h:6 cblk_w:64 cblk_h:64
+n=8 , parent_tile tlx=0 , tly=0 , blx=512 , bry=512 
+res_lvl no:0 num_subbands:1,dec_lvl_no:3,tlx:0,tly:0,brx:64,bry:64,width:64,height:64,num_vprc:1,num_hprc:1,num_prcs:1
+tlx:0 tly:0 Num cblks:1 Sb w:64 Sb h:64
+10:50:17  33044 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:0 tly:0 brx:64 bry:64 w:64 h:64 num_xcblks:1 num_ycblks:1 num_cblks:1
+n=4 , parent_tile tlx=0 , tly=0 , blx=512 , bry=512 
+res_lvl no:1 num_subbands:3,dec_lvl_no:3,tlx:0,tly:0,brx:128,bry:128,width:128,height:128,num_vprc:1,num_hprc:1,num_prcs:1
+tlx:64 tly:0 Num cblks:1 Sb w:64 Sb h:64
+10:50:17  33062 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:64 tly:0 brx:128 bry:64 w:64 h:64 num_xcblks:1 num_ycblks:1 num_cblks:1
+tlx:0 tly:64 Num cblks:1 Sb w:64 Sb h:64
+10:50:17  33076 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:0 tly:64 brx:64 bry:128 w:64 h:64 num_xcblks:1 num_ycblks:1 num_cblks:1
+tlx:64 tly:64 Num cblks:1 Sb w:64 Sb h:64
+10:50:17  33089 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:64 tly:64 brx:128 bry:128 w:64 h:64 num_xcblks:1 num_ycblks:1 num_cblks:1
+n=2 , parent_tile tlx=0 , tly=0 , blx=512 , bry=512 
+res_lvl no:2 num_subbands:3,dec_lvl_no:2,tlx:0,tly:0,brx:256,bry:256,width:256,height:256,num_vprc:1,num_hprc:1,num_prcs:1
+tlx:128 tly:0 Num cblks:4 Sb w:128 Sb h:128
+10:50:17  33145 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:128 tly:0 brx:256 bry:128 w:128 h:128 num_xcblks:2 num_ycblks:2 num_cblks:4
+tlx:0 tly:128 Num cblks:4 Sb w:128 Sb h:128
+10:50:17  33162 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:0 tly:128 brx:128 bry:256 w:128 h:128 num_xcblks:2 num_ycblks:2 num_cblks:4
+tlx:128 tly:128 Num cblks:4 Sb w:128 Sb h:128
+10:50:17  33175 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:128 tly:128 brx:256 bry:256 w:128 h:128 num_xcblks:2 num_ycblks:2 num_cblks:4
+n=1 , parent_tile tlx=0 , tly=0 , blx=512 , bry=512 
+res_lvl no:3 num_subbands:3,dec_lvl_no:1,tlx:0,tly:0,brx:512,bry:512,width:512,height:512,num_vprc:1,num_hprc:1,num_prcs:1
+tlx:256 tly:0 Num cblks:16 Sb w:256 Sb h:256
+10:50:17  33199 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:256 tly:0 brx:512 bry:256 w:256 h:256 num_xcblks:4 num_ycblks:4 num_cblks:16
+tlx:0 tly:256 Num cblks:16 Sb w:256 Sb h:256
+10:50:17  33219 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:0 tly:256 brx:256 bry:512 w:256 h:256 num_xcblks:4 num_ycblks:4 num_cblks:16
+tlx:256 tly:256 Num cblks:16 Sb w:256 Sb h:256
+10:50:17  33234 [init_codeblocks] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image.c:95) sb:tlx:256 tly:256 brx:512 bry:512 w:256 h:256 num_xcblks:4 num_ycblks:4 num_cblks:16
+kernel consumption: 569.274353
+level_shift=7,tile->width=512,tile->height=512
+ 114.000, 110.000, 103.000,  99.000,  94.000,  89.000,  83.000,  85.000,  74.000,  75.000,  75.000,  74.000,  72.000,  73.000,  73.000,  73.000,
+  69.000,  71.000,  79.000,  89.000,  94.000, 100.000, 106.000, 111.000, 111.000, 117.000, 125.000, 135.000, 146.000, 154.000, 163.000, 168.000,
+ 178.000, 176.000, 174.000, 178.000, 174.000, 171.000, 178.000, 175.000, 182.000, 179.000, 174.000, 170.000, 165.000, 162.000, 159.000, 153.000,
+ 141.000, 136.000, 130.000, 121.000, 110.000,  97.000,  86.000,  84.000,  62.000,  60.000,  60.000,  61.000,  65.000,  69.000,  76.000,  86.000,
+  96.000, 106.000, 118.000, 133.000, 149.000, 162.000, 173.000, 182.000, 191.000, 192.000, 190.000, 185.000, 181.000, 182.000, 189.000, 198.000,
+ 157.000, 132.000, 107.000, 104.000, 100.000, 115.000, 136.000, 163.000, 160.000, 158.000, 156.000, 155.000, 154.000, 152.000, 150.000, 149.000,
+ 148.000, 147.000, 147.000, 147.000, 147.000, 147.000, 147.000, 147.000, 147.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000,
+ 149.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000,
+
+iend = 262016
+  27.000,  30.000,  34.000,  38.000,  42.000,  45.000,  49.000,  51.000,  57.000,  57.000,  60.000,  61.000,  63.000,  67.000,  67.000,  69.000,
+  68.000,  62.000,  76.000,  82.000,  84.000,  84.000,  91.000,  86.000,  94.000,  97.000, 102.000, 106.000, 110.000, 115.000, 118.000, 120.000,
+ 117.000, 117.000, 116.000, 115.000, 116.000, 116.000, 115.000, 116.000, 116.000, 118.000, 115.000, 116.000, 117.000, 116.000, 115.000, 118.000,
+ 119.000, 120.000, 120.000, 120.000, 120.000, 119.000, 118.000, 119.000, 112.000, 112.000, 112.000, 112.000, 112.000, 112.000, 113.000, 112.000,
+ 115.000, 115.000, 115.000, 114.000, 115.000, 115.000, 115.000, 115.000, 115.000, 115.000, 116.000, 116.000, 116.000, 117.000, 117.000, 114.000,
+ 113.000, 111.000, 113.000, 111.000, 112.000, 111.000, 113.000, 110.000, 108.000, 108.000, 109.000, 109.000, 108.000, 108.000, 106.000, 107.000,
+ 105.000, 103.000, 105.000, 103.000, 102.000, 106.000, 102.000, 103.000, 104.000, 104.000, 104.000, 104.000, 104.000, 103.000, 102.000, 102.000,
+ 102.000, 102.000, 106.000, 105.000, 107.000, 112.000, 111.000, 115.000, 104.000, 101.000, 107.000, 105.000, 104.000, 105.000, 103.000, 105.000,
+
+level_shift=7,tile->width=512,tile->height=512
+ 114.000, 110.000, 103.000,  99.000,  94.000,  89.000,  83.000,  85.000,  74.000,  75.000,  75.000,  74.000,  72.000,  73.000,  73.000,  73.000,
+  69.000,  71.000,  79.000,  89.000,  94.000, 100.000, 106.000, 111.000, 111.000, 117.000, 125.000, 135.000, 146.000, 154.000, 163.000, 168.000,
+ 178.000, 176.000, 174.000, 178.000, 174.000, 171.000, 178.000, 175.000, 182.000, 179.000, 174.000, 170.000, 165.000, 162.000, 159.000, 153.000,
+ 141.000, 136.000, 130.000, 121.000, 110.000,  97.000,  86.000,  84.000,  62.000,  60.000,  60.000,  61.000,  65.000,  69.000,  76.000,  86.000,
+  96.000, 106.000, 118.000, 133.000, 149.000, 162.000, 173.000, 182.000, 191.000, 192.000, 190.000, 185.000, 181.000, 182.000, 189.000, 198.000,
+ 157.000, 132.000, 107.000, 104.000, 100.000, 115.000, 136.000, 163.000, 160.000, 158.000, 156.000, 155.000, 154.000, 152.000, 150.000, 149.000,
+ 148.000, 147.000, 147.000, 147.000, 147.000, 147.000, 147.000, 147.000, 147.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000,
+ 149.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000,
+
+iend = 262016
+  27.000,  30.000,  34.000,  38.000,  42.000,  45.000,  49.000,  51.000,  57.000,  57.000,  60.000,  61.000,  63.000,  67.000,  67.000,  69.000,
+  68.000,  62.000,  76.000,  82.000,  84.000,  84.000,  91.000,  86.000,  94.000,  97.000, 102.000, 106.000, 110.000, 115.000, 118.000, 120.000,
+ 117.000, 117.000, 116.000, 115.000, 116.000, 116.000, 115.000, 116.000, 116.000, 118.000, 115.000, 116.000, 117.000, 116.000, 115.000, 118.000,
+ 119.000, 120.000, 120.000, 120.000, 120.000, 119.000, 118.000, 119.000, 112.000, 112.000, 112.000, 112.000, 112.000, 112.000, 113.000, 112.000,
+ 115.000, 115.000, 115.000, 114.000, 115.000, 115.000, 115.000, 115.000, 115.000, 115.000, 116.000, 116.000, 116.000, 117.000, 117.000, 114.000,
+ 113.000, 111.000, 113.000, 111.000, 112.000, 111.000, 113.000, 110.000, 108.000, 108.000, 109.000, 109.000, 108.000, 108.000, 106.000, 107.000,
+ 105.000, 103.000, 105.000, 103.000, 102.000, 106.000, 102.000, 103.000, 104.000, 104.000, 104.000, 104.000, 104.000, 103.000, 102.000, 102.000,
+ 102.000, 102.000, 106.000, 105.000, 107.000, 112.000, 111.000, 115.000, 104.000, 101.000, 107.000, 105.000, 104.000, 105.000, 103.000, 105.000,
+
+level_shift=7,tile->width=512,tile->height=512
+ 114.000, 110.000, 103.000,  99.000,  94.000,  89.000,  83.000,  85.000,  74.000,  75.000,  75.000,  74.000,  72.000,  73.000,  73.000,  73.000,
+  69.000,  71.000,  79.000,  89.000,  94.000, 100.000, 106.000, 111.000, 111.000, 117.000, 125.000, 135.000, 146.000, 154.000, 163.000, 168.000,
+ 178.000, 176.000, 174.000, 178.000, 174.000, 171.000, 178.000, 175.000, 182.000, 179.000, 174.000, 170.000, 165.000, 162.000, 159.000, 153.000,
+ 141.000, 136.000, 130.000, 121.000, 110.000,  97.000,  86.000,  84.000,  62.000,  60.000,  60.000,  61.000,  65.000,  69.000,  76.000,  86.000,
+  96.000, 106.000, 118.000, 133.000, 149.000, 162.000, 173.000, 182.000, 191.000, 192.000, 190.000, 185.000, 181.000, 182.000, 189.000, 198.000,
+ 157.000, 132.000, 107.000, 104.000, 100.000, 115.000, 136.000, 163.000, 160.000, 158.000, 156.000, 155.000, 154.000, 152.000, 150.000, 149.000,
+ 148.000, 147.000, 147.000, 147.000, 147.000, 147.000, 147.000, 147.000, 147.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000,
+ 149.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000, 148.000,
+
+iend = 262016
+  27.000,  30.000,  34.000,  38.000,  42.000,  45.000,  49.000,  51.000,  57.000,  57.000,  60.000,  61.000,  63.000,  67.000,  67.000,  69.000,
+  68.000,  62.000,  76.000,  82.000,  84.000,  84.000,  91.000,  86.000,  94.000,  97.000, 102.000, 106.000, 110.000, 115.000, 118.000, 120.000,
+ 117.000, 117.000, 116.000, 115.000, 116.000, 116.000, 115.000, 116.000, 116.000, 118.000, 115.000, 116.000, 117.000, 116.000, 115.000, 118.000,
+ 119.000, 120.000, 120.000, 120.000, 120.000, 119.000, 118.000, 119.000, 112.000, 112.000, 112.000, 112.000, 112.000, 112.000, 113.000, 112.000,
+ 115.000, 115.000, 115.000, 114.000, 115.000, 115.000, 115.000, 115.000, 115.000, 115.000, 116.000, 116.000, 116.000, 117.000, 117.000, 114.000,
+ 113.000, 111.000, 113.000, 111.000, 112.000, 111.000, 113.000, 110.000, 108.000, 108.000, 109.000, 109.000, 108.000, 108.000, 106.000, 107.000,
+ 105.000, 103.000, 105.000, 103.000, 102.000, 106.000, 102.000, 103.000, 104.000, 104.000, 104.000, 104.000, 104.000, 103.000, 102.000, 102.000,
+ 102.000, 102.000, 106.000, 105.000, 107.000, 112.000, 111.000, 115.000, 104.000, 101.000, 107.000, 105.000, 104.000, 105.000, 103.000, 105.000,
+
+start_global :775771
+10:50:17 717098 [save_img_ord] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image_ordinary.c:460) start
+10:50:17 861600 [save_img_ord] (/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/types/image_ordinary.c:534) saved: 56.bmp

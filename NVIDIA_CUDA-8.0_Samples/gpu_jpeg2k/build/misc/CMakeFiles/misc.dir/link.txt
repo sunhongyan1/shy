@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmisc.a  misc_generated_cuda_errors.cu.o misc_generated_memory_management.cu.o
+/usr/bin/ranlib libmisc.a

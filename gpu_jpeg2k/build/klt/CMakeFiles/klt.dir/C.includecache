@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/klt/blocks.c
+blocks.h
+/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/klt/blocks.h
+
+/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/klt/blocks.h
+

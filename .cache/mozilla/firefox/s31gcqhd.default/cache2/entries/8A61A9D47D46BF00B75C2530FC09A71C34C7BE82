@@ -1,0 +1,665 @@
+/**
+* @author wiki <wu.kun@zol.com.cn>
+* @copyringt (c) ZOL tech GROUP
+* @version ZMF v1.0 beta 1.0
+*/
+
+//øÁ”Ú
+//document.domain = "zol.com.cn";
+//±®¥Ì¥¶¿Ì
+//window.onerror = function () {
+	//return true;
+//};
+
+if (typeof Pchome == "undefined" || !Pchome) {
+	var Pchome = {};
+}
+
+Pchome.namespace = function() {
+	var a=arguments, o=null, i, j, d;
+	for (i=0; i<a.length; i=i+1) {
+		d=a[i].split(".");
+		o=Pchome;
+
+		for (j=(d[0] == "Pchome") ? 1 : 0; j<d.length; j=j+1) {
+			o[d[j]]=o[d[j]] || {};
+			o=o[d[j]];
+		}
+	}
+
+	return o;
+};
+
+(function() {
+	Pchome.namespace("util", 'widget');
+})();
+
+
+Pchome.W = window;
+Pchome.D = document;
+
+Pchome.URL = Pchome.D.location.href;//µ±√ÊURLµÿ÷∑
+Pchome.go = function (url) {
+	Pchome.D.location.href = url;
+};
+
+Pchome.$ = function(id) {
+	
+	if (!id) {
+		return false;
+	}
+	
+	if (typeof(id) == 'object') {
+		return id;
+	}
+	
+	var isIE = Pchome.browser.IE;
+	if (isIE && isIE < 8) {//IE‰Ø¿¿∆˜µƒid∫ÕNAME≥ÂÕªΩ‚æˆ
+		elems = document.all[id];
+		if (elems) {
+			for (var i = 0, len = elems.length; i < len; i ++)
+			{
+				var elem = elems[i];
+				if (elem.id == id) {
+					return elem;
+				}
+			}
+		} else {
+			return false;
+		}
+	}
+	
+	return !!id && document.getElementById(id) || false;
+}
+/**
+* ∏˘æ›tagname≤È’“DOM∂‘œÛ
+* @param string tagName ±Í«©√˚
+* @param string|htmlElement context …œœ¬Œƒ
+*/
+Pchome.find = function (tagName, context)
+{
+	if (!tagName || typeof(tagName) != 'string') {
+		return false;
+	}
+	var context = Pchome.$(context);
+	context = context || Pchome.D;
+	
+	if (typeof(context) != 'object') {
+		return false;
+	}
+	
+	return context.getElementsByTagName(tagName);
+};
+
+/**
+* ‰Ø¿¿∆˜∞Ê±æºÏ≤‚ ∏˘æ›yuiµƒYAHOO.env.ua¿‡–ﬁ∏ƒ
+* @class Pchome.browser
+* @static
+*/
+Pchome.browser = function ()
+{
+	var o = {
+		IE     : 0,
+		OPERA  : 0,
+		GECKO  : 0,
+		WEBKIT : 0,
+		MOBILE : null
+	};
+	
+	var ua=navigator.userAgent, m;
+	
+	if ((/KHTML/).test(ua)) {
+		o.WEBKIT=1;
+	}
+	m=ua.match(/AppleWebKit\/([^\s]*)/);
+	
+	if (m&&m[1]) {
+		o.WEBKIT=parseFloat(m[1]);
+
+		// Mobile browser check
+		if (/ Mobile\//.test(ua)) {
+			o.MOBILE = "Apple"; // iPhone or iPod Touch
+		} else {
+			m=ua.match(/NokiaN[^\/]*/);
+			if (m) {
+				o.MOBILE = m[0]; // Nokia N-series, ex: NokiaN95
+			}
+		}
+
+	}
+
+	if (!o.WEBKIT) { // not webkit
+		// @todo check Opera/8.01 (J2ME/MIDP; Opera Mini/2.0.4509/1316; fi; U; ssr)
+		m=ua.match(/Opera[\s\/]([^\s]*)/);
+		if (m&&m[1]) {
+			o.OPERA=parseFloat(m[1]);
+			m=ua.match(/Opera Mini[^;]*/);
+			if (m) {
+				o.MOBILE = m[0]; // ex: Opera Mini/2.0.4509/1316
+			}
+		} else { // not opera or webkit
+			m=ua.match(/MSIE\s([^;]*)/);
+			if (m&&m[1]) {
+				o.IE=parseFloat(m[1]);
+			} else { // not opera, webkit, or ie
+				m=ua.match(/Gecko\/([^\s]*)/);
+				if (m) {
+					o.GECKO=1; // Gecko detected, look for revision
+					m=ua.match(/rv:([^\s\)]*)/);
+					if (m&&m[1]) {
+						o.GECKO=parseFloat(m[1]);
+					}
+				}
+			}
+		}
+	}
+	return o;
+}();
+
+/**
+* œµÕ≥∫Ø ˝
+*/
+Pchome.env = {
+	trim : function (str)
+	{
+		return str.replace(/(^\s*)|(\s*$)/g, '');
+	},
+	
+	isUndefined : function (o)
+	{
+		return typeof(o) === 'undefined';
+	},
+	
+	isnull : function (exp)
+	{
+		return exp === null;
+	},
+	
+	isset : function (exp)
+	{
+		return exp == undefined;
+	},
+	getRewriteJsUrl : function (ajaxUrl)
+	{
+		if (!ajaxUrl) {
+			return false;
+		}
+		ajaxUrl = ajaxUrl.replace(/Index\.php\?c=Ajax\&a=([\w_]+)\&(.+)/g, "ajax_$1_$2.html");
+		ajaxUrl = ajaxUrl.replace(/&/g, '^');
+		return ajaxUrl;
+	}
+	
+}
+
+Pchome.load = function(file, filetype, callback) {
+	var self = this;
+	this.loaded = false;
+	this.callback = callback;//ªÿµ˜∫Ø ˝
+	filetype = filetype || 'js';
+	
+	var onload = function (file)
+	{
+		typeof(callback) == 'function' && callback(file);
+	}
+	
+	    var isLoading = function(elem)
+	{
+		return elem.readyState && elem.readyState=="loading";
+	};
+	
+	var checkLoaded = function ()
+	{
+		switch (filetype) {
+			case 'js' :
+				tagName      = 'script';
+				linkAttrName = 'src';
+				break;
+			case 'css' :
+				tagName      = 'link';
+				linkAttrName = 'href';
+				break;
+			default : 
+				return false;
+				break;
+		}
+		
+		var loadElems = document.getElementsByTagName(tagName);
+		if (loadElems) {
+			for (var i = 0, len = loadElems.length; i < len; i++) {
+				
+				if (loadElems[i][linkAttrName].indexOf(file) != -1) {
+					self.loaded = true;
+					return true;
+				}
+			}
+		}
+	}
+	
+	if (checkLoaded()) {
+		onload(file);
+		return;
+	}
+	
+	if (filetype == 'js') {
+		var elem = document.createElement('script');
+		with(elem) {
+			type = 'text/javascript';
+			src = file;
+		}
+	} else if (filetype == 'css') {
+		var elem = document.createElement("link");
+		with(elem) {
+			type = 'text/css';
+			rel  = 'stylesheet';
+			href = file;
+		}
+	}
+	
+	
+	elem && document.getElementsByTagName("head")[0].appendChild(elem);
+	
+	    var loadFunc = function()
+	{
+		if(isLoading(this))
+			return;
+		else
+		  onload(file);
+	}
+    
+    if (Pchome.browser.IE) {
+        elem.onreadystatechange = loadFunc;
+    } else {
+        elem.onload = loadFunc;
+    }
+		
+	return elem;
+};
+
+Pchome.addEvent = function(obj, eventType, fn)
+{
+	var obj = (typeof(obj) == 'string') ? Pchome.$(obj) : obj;
+	
+	if(obj.attachEvent) {
+		
+		var typeRef = "_" + eventType;
+		if (!obj[typeRef]) {
+			obj[typeRef] = [];
+			var onEvent = obj['on' + eventType];
+			onEvent && obj[typeRef].push(onEvent);
+		}
+		
+		for (var i in obj[typeRef]) {
+			if (obj[typeRef][i] == fn) {
+				return;
+			}
+		}
+		
+		obj[typeRef].push(fn);
+		obj['on' + eventType] = function()
+		{
+			
+			for (var i in this[typeRef]) {
+				if (this[typeRef][i].apply(this, arguments) === false) {
+					return false;
+				}
+			}
+		}
+	}else{
+		obj.addEventListener(eventType, fn, false);
+	}
+};
+Pchome.removeEvent = function(obj, eventType, fn)
+{
+	if (obj.attachEvent) {
+		var typeRef = "_" + eventType;
+		if (!obj[typeRef]) {
+			return false;
+		}
+		for (var i in obj[typeRef]) {
+			if (obj[typeRef][i] == fn) {
+				obj[typeRef].splice(i, 1);
+				break;
+			}
+		}
+	} else {
+		obj.removeEventListener(eventType, fn, false);
+	}
+}
+
+Pchome.addClass = function(obj, className)
+{
+	var obj = (typeof(obj) == 'string') ? Pchome.$(obj) : obj;
+	var classNames = className.split(' ');
+	var _className = ' ' + obj.className + ' ';
+	
+	Pchome.removeClass(obj, className);
+	
+	obj.className += ' ' + className;
+	return true;
+};
+Pchome.removeClass = function(obj, className)
+{
+	var obj = (typeof(obj) == 'string') ? Pchome.$(obj) : obj;
+	
+	if (!className) {
+		obj.className = '';
+		return true;
+	}
+	
+	var classNames = className.split(' ');
+	var _className = ' ' + obj.className + ' ';
+	for (var i in classNames) {
+		_className = _className.replace(' ' + classNames[i] + ' ', ' ');
+	}
+	
+	obj.className = Pchome.env.trim(_className);
+	return true;
+}
+
+Pchome.onReady = function(fn)
+{
+	if (typeof(fn) != 'function') {
+		return false;
+	}
+	this.domReady = false;
+	
+	if (typeof(fns) == 'undefined') {
+		var fns = [];
+	}
+	fns.push(fn);
+	
+	var init = function()
+	{
+		for (i in fns) {
+			fns[i]();
+		}
+	};
+	this.ready = function()
+	{
+		if (this.domReady) {
+			init();
+		}
+		
+		if (Pchome.browser.IE) {
+			var timer = window.setInterval(function()
+			{
+				try {
+					document.body.doScroll('left');
+					init();
+					window.clearInterval(timer);
+					this.domReady = true;
+				} catch (e) {}
+			}, 5);
+		} else {
+			try {
+				document.removeEventListener('DOMContentLoaded', init);
+			} catch (e) {}
+			
+			document.addEventListener('DOMContentLoaded', init, false);
+			this.domReady = true;
+		}
+	}
+	this.ready();
+}
+
+Pchome.util.cookie = {
+	get : function(n){
+		var v = '',
+		c = ' ' + document.cookie + ';',
+		s = c.indexOf((' ' + n + '='));
+		if (s >= 0) {
+			s += n.length + 2;
+			v = unescape(c.substring(s, c.indexOf(';', s)));
+		}
+		return v;
+	},
+	set : function(n,v){
+		var a=arguments,al=a.length;
+		document.cookie = n + "=" + v +
+		((al>2&&a[2]!="") ? ";expires=" + ((new Date((new Date()).getTime() + a[2] * 3600000)).toGMTString()) : "") + ";path=" + ((al>3&&a[3]!="") ? a[3] : "/") +
+		";domain="  + ((al>4&&a[4]!="") ? a[4] : ".pchome.net");
+	},
+	checksub : function(sCookie,s){
+		var aParts = sCookie.split('&'),nParts = aParts.length,aKeyVal;
+		if (nParts==1) {
+			return sCookie.indexOf(s);
+			} else {
+			for(var i=0; i<nParts; i++){
+				aKeyVal = aParts[i].split('=');
+				if(aKeyVal[0]==s){
+					return i;
+				}
+			}
+		}
+		return -1;
+	},
+	getsub : function(n,s){
+		var sCookie = this.get(n);
+		var nExists = this.checksub(sCookie,s);
+		if (nExists>-1) {
+			return sCookie.split('&')[nExists].split('=')[1];
+			} else if (sCookie.indexOf(s)>0) {
+			return sCookie.split('=')[1];
+		}
+		return '';
+	},
+	setsub : function(n,s,v){
+		var sCookie = this.get(n),a=arguments,al=a.length;
+		var aParts = sCookie.split('&');
+		var nExists = this.checksub(sCookie,s);
+		if (sCookie=='') {
+			sNewVal=(s+'='+v).toString();
+			} else {
+			if(nExists==-1){nExists=aParts.length;}
+			aParts[nExists]=s+'='+v;
+			sNewVal = aParts.join('&');
+		}
+		return this.set(n,sNewVal,(a[3]||''),(a[4]||'/'),(a[5]||''));
+	}
+};
+
+//º”»Î ’≤ÿ
+Pchome.util.addFavorite = function (obj) {
+    
+	var url=document.location.href;
+	var title=document.title;
+
+    if(Pchome.browser.IE == 8) {
+        try {
+            window.external.AddToFavoritesBar(url, title, '');//IE8
+        } catch (e) {
+            alert("±ß«∏£¨ƒ˙À˘ π”√µƒ‰Ø¿¿∆˜Œﬁ∑®ÕÍ≥…¥À≤Ÿ◊˜°£\nƒ˙–Ë“™ ÷∂Ø∞¥ Ctrl+D ¿¥ÃÌº” ’≤ÿ°£");
+        }
+    } else {
+        try {
+            window.external.AddFavorite(url, title);
+        } catch(e) {
+            try {
+                window.sidebar.addPanel(title, url, "");//firefox
+            } catch(e) {
+                alert("±ß«∏£¨ƒ˙À˘ π”√µƒ‰Ø¿¿∆˜Œﬁ∑®ÕÍ≥…¥À≤Ÿ◊˜°£\nƒ˙–Ë“™ ÷∂Ø∞¥ Ctrl+D ¿¥ÃÌº” ’≤ÿ°£");
+            }
+        }
+    }
+
+	return false;
+};
+
+//∏¥÷∆π¶ƒ‹ 
+Pchome.util.copy = function (data, callback)
+{
+	if (window.clipboardData){
+		if(window.clipboardData.setData("Text",data)){
+			typeof(callback) == 'function' && callback();
+		}
+	}else{
+		var flashcopier = 'flashcopier';
+		var swfFile = '/_clipboard.swf';
+		if(!Pchome.$(flashcopier)) {
+			var divholder = document.createElement('div');
+			divholder.id = flashcopier;
+			divholder.style.display='none';
+			document.body.appendChild(divholder);
+		}
+		Pchome.$(flashcopier).innerHTML = '';
+		data = data.replace(/\"/g,'\'');
+		var divinfo = '<embed src="' + swfFile + '" FlashVars="clipboard='+data+'" width="0" height="0" type="application/x-shockwave-flash"></embed>';
+		Pchome.$(flashcopier).innerHTML = divinfo;
+		typeof(callback) == 'function' && callback();
+   }
+};
+
+//ªÒ»°◊¯±Í
+Pchome.util.getPosition = function (elem) {
+	if (!elem) return false;
+	
+	var x = elem.offsetLeft;
+	var y = elem.offsetTop;
+	var w = elem.offsetWidth;
+	var h = elem.offsetHeight;
+	while (elem = elem.offsetParent) {
+		x += elem.offsetLeft;
+		y += elem.offsetTop;
+	}
+	
+	return {x : x, y : y, w : w, h : h};
+};
+
+//ªÒ»°“≥√Êœ‡πÿ◊¯±Í–≈œ¢
+Pchome.util.getBodySize = function ()
+{
+	var doc = document.documentElement, body = document.body;
+	//’˚“≥øÌ
+	var aw = doc && doc.scrollWidth || body && body.scrollWidth || 0;
+	//’˚“≥∏ﬂ
+	var ah = doc && doc.scrollHeight || body && body.scrollHeight || 0;
+	//ø… ”øÌ
+	var w = doc && doc.clientWidth || body && body.clientWidth || 0;
+	//ø… ”∏ﬂ
+	var h = doc && doc.clientHeight || body && body.clientHeight || 0;
+	//æÌ»•µƒ◊Ûπˆ∂ØÃı
+	var x = doc && doc.scrollLeft || body && body.scrollLeft || 0;
+	//æÌ»•µƒ¥π÷±πˆ∂ØÃı
+	var y = doc && doc.scrollTop || body && body.scrollTop || 0;
+	return {aw : aw, ah : ah, w : w, h : h, x : x, y : y};
+};
+
+//”√ªß–≈œ¢
+Pchome.user = function ()
+{
+	var info = {
+		id       : 0,
+		name     : '',
+		nickName : ''
+	};
+	
+	var cookie = Pchome.util.cookie;
+	info.id       = cookie.get('__userId');
+	info.name     = cookie.get('__P_UserName');
+	info.nickName = cookie.get('__P_NickName');
+	info.jsNickName = unescape(cookie.get('__P_JS_NickName'));
+	return info;
+}();
+
+Pchome.util.toggle = function(id, styles, callback) 
+{
+	var obj = Pchome.$(id);
+	styles = styles || {};
+	var show = styles.show || '';
+	var hidden = styles.hidden || 'none';
+	if(obj.style.display == show){
+		obj.style.display = hidden;
+	} else {
+		obj.style.display = show;
+	}
+	typeof(callback) == 'function' && callback(obj.style.display);
+	
+};
+
+/**
+* —≠ª∑¥¶¿Ì√ø–– ˝æ›
+*/
+Pchome.each = function(arr, callback)
+{
+	var len = arr.length;
+	if (!len || typeof(callback) !== 'function') {
+		return false;
+	}
+	
+	for (var i = 0; i < len; i++) {
+		callback(arr[i], i);
+	}
+	return true;
+};
+
+/**
+* √™µ„(Anchor)º‰∆Ωª¨“∆∂Ø
+* wanghb 2010-12-08
+* el : ƒø±Í√™µ„ ID
+* duration : ≥÷–¯ ±º‰£¨“‘∫¡√ÎŒ™µ•Œª£¨‘Ω–°‘ΩøÏ
+*/
+Pchome.util.scroller = function(el, duration) {
+    if (typeof el != 'object') {
+        el = Pchome.$(el);
+    }
+
+    if (!el) {
+        return;
+    }
+
+    var z = this;
+    z.el = el;
+    z.p = Pchome.util.getPosition(el);//ªÒµ√◊¯±Í
+    z.s = Pchome.util.getBodySize();//ªÒµ√πˆ∂ØÃı
+    z.clear = function() {window.clearInterval(z.timer);z.timer = null};
+    z.t = (new Date).getTime();
+
+    z.step = function() {
+        var t = (new Date).getTime();
+        var p = (t - z.t) / duration;
+        if (t >= duration + z.t) {
+            z.clear();
+            window.setTimeout(function() {z.scroll(z.p.y, z.p.x)}, 13);
+        } else {
+            st = ((-Math.cos(p * Math.PI) / 2) + 0.5) * (z.p.y - z.s.y) + z.s.y;
+            //sl = ((-Math.cos(p * Math.PI) / 2) + 0.5) * (z.p.x - z.s.x) + z.s.x;
+            sl = 0;
+            z.scroll(st, sl);
+        }
+    };
+
+    z.scroll = function(t, l) {window.scrollTo(l, t)};
+    z.timer = window.setInterval(function() {z.step();}, 13);
+};
+
+J1„t◊      X¶ç>X¶çA=r™XØ¡Ú   9    :http://icon-z.pchome.net/pchome/pdownload/js/zmf.js?v=10 necko:classified 1 strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: application/javascript
+Content-Length: 13431
+Date: Fri, 17 Feb 2017 05:17:41 GMT
+Etag: "55c331b7-3477"
+Via: http/1.1 ats_server (ats532 [cRs f ]), cache36.l2nu16-1[0,304-0,H], cache42.l2nu16-1[0,0], kunlun10.cn19[0,200-0,H], kunlun4.cn19[1,0]
+Last-Modified: Thu, 06 Aug 2015 10:06:47 GMT
+Accept-Ranges: bytes
+Age: 1475
+X-Cache: HIT TCP_MEM_HIT dirn:11:23782176
+X-Swift-SaveTime: Fri, 17 Feb 2017 05:24:03 GMT
+X-Swift-CacheTime: 3600
+Timing-Allow-Origin: *
+EagleId: 7c5fb58414873101360145563e
+ original-response-headers Server: Tengine
+Content-Type: application/javascript
+Content-Length: 13431
+Connection: keep-alive
+Date: Fri, 17 Feb 2017 05:17:41 GMT
+Etag: "55c331b7-3477"
+Via: http/1.1 ats_server (ats532 [cRs f ]), cache36.l2nu16-1[0,304-0,H], cache42.l2nu16-1[0,0], kunlun10.cn19[0,200-0,H], kunlun4.cn19[1,0]
+Last-Modified: Thu, 06 Aug 2015 10:06:47 GMT
+Accept-Ranges: bytes
+Age: 1475
+X-Cache: HIT TCP_MEM_HIT dirn:11:23782176
+X-Swift-SaveTime: Fri, 17 Feb 2017 05:24:03 GMT
+X-Swift-CacheTime: 3600
+Timing-Allow-Origin: *
+EagleId: 7c5fb58414873101360145563e
+ uncompressed-len 0   4w

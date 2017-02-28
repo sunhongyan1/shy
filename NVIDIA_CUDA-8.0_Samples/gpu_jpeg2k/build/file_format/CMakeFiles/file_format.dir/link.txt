@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfile_format.a  CMakeFiles/file_format.dir/boxes.c.o
+/usr/bin/ranlib libfile_format.a

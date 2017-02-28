@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtier1.a  CMakeFiles/tier1.dir/quantization.c.o tier1_generated_quantizer.cu.o tier1_generated_dequantizer.cu.o
+/usr/bin/ranlib libtier1.a
