@@ -1,0 +1,47 @@
+digraph "GG" {
+node [
+  fontsize = "12"
+];
+    "node3" [ label="jp2decoder" shape="house"];
+    "node41" [ label="/usr/local/cuda/lib64/libcudart.so" shape="ellipse"];
+    "node3" -> "node41" // jp2decoder -> /usr/local/cuda/lib64/libcudart.so
+    "node42" [ label="/usr/lib/aarch64-linux-gnu/libcuda.so" shape="ellipse"];
+    "node3" -> "node42" // jp2decoder -> /usr/lib/aarch64-linux-gnu/libcuda.so
+    "node43" [ label="/home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/freeimage/lib/libfreeimage.so" shape="ellipse"];
+    "node3" -> "node43" // jp2decoder -> /home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/freeimage/lib/libfreeimage.so
+    "node31" [ label="file_format" shape="diamond"];
+    "node3" -> "node31" // jp2decoder -> file_format
+    "node34" [ label="file_access" shape="diamond"];
+    "node3" -> "node34" // jp2decoder -> file_access
+    "node19" [ label="preprocessing" shape="diamond"];
+    "node3" -> "node19" // jp2decoder -> preprocessing
+    "node19" -> "node41" // preprocessing -> /usr/local/cuda/lib64/libcudart.so
+    "node19" -> "node42" // preprocessing -> /usr/lib/aarch64-linux-gnu/libcuda.so
+    "node40" [ label="klt" shape="diamond"];
+    "node19" -> "node40" // preprocessing -> klt
+    "node40" -> "node41" // klt -> /usr/local/cuda/lib64/libcudart.so
+    "node40" -> "node42" // klt -> /usr/lib/aarch64-linux-gnu/libcuda.so
+    "node44" [ label="m" shape="ellipse"];
+    "node40" -> "node44" // klt -> m
+    "node45" [ label="/usr/local/cuda/lib64/libcublas.so" shape="ellipse"];
+    "node40" -> "node45" // klt -> /usr/local/cuda/lib64/libcublas.so
+    "node13" [ label="config" shape="diamond"];
+    "node3" -> "node13" // jp2decoder -> config
+    "node37" [ label="types" shape="diamond"];
+    "node3" -> "node37" // jp2decoder -> types
+    "node37" -> "node43" // types -> /home/ubuntu/NVIDIA_CUDA-8.0_Samples/gpu_jpeg2k/freeimage/lib/libfreeimage.so
+    "node28" [ label="tier2" shape="diamond"];
+    "node3" -> "node28" // jp2decoder -> tier2
+    "node28" -> "node41" // tier2 -> /usr/local/cuda/lib64/libcudart.so
+    "node28" -> "node42" // tier2 -> /usr/lib/aarch64-linux-gnu/libcuda.so
+    "node28" -> "node44" // tier2 -> m
+    "node22" [ label="misc" shape="diamond"];
+    "node28" -> "node22" // tier2 -> misc
+    "node22" -> "node41" // misc -> /usr/local/cuda/lib64/libcudart.so
+    "node22" -> "node42" // misc -> /usr/lib/aarch64-linux-gnu/libcuda.so
+    "node28" -> "node37" // tier2 -> types
+    "node25" [ label="tier1" shape="diamond"];
+    "node28" -> "node25" // tier2 -> tier1
+    "node25" -> "node41" // tier1 -> /usr/local/cuda/lib64/libcudart.so
+    "node25" -> "node42" // tier1 -> /usr/lib/aarch64-linux-gnu/libcuda.so
+}

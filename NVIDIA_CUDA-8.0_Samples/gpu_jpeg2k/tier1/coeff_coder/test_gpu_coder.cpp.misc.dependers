@@ -1,0 +1,22 @@
+digraph "GG" {
+node [
+  fontsize = "12"
+];
+    "node22" [ label="misc" shape="diamond"];
+    "node1" [ label="decoder" shape="house"];
+    "node1" -> "node22" // misc -> decoder
+    "node0" [ label="encoder" shape="house"];
+    "node0" -> "node22" // misc -> encoder
+    "node10" [ label="gpu_bpc" shape="diamond"];
+    "node10" -> "node22" // misc -> gpu_bpc
+    "node7" [ label="gpu_coeff_coder" shape="diamond"];
+    "node7" -> "node22" // misc -> gpu_coeff_coder
+    "node1" -> "node7" // gpu_coeff_coder -> decoder
+    "node0" -> "node7" // gpu_coeff_coder -> encoder
+    "node28" [ label="tier2" shape="diamond"];
+    "node28" -> "node22" // misc -> tier2
+    "node1" -> "node28" // tier2 -> decoder
+    "node0" -> "node28" // tier2 -> encoder
+    "node3" [ label="jp2decoder" shape="house"];
+    "node3" -> "node28" // tier2 -> jp2decoder
+}

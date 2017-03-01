@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtypes.a  CMakeFiles/types.dir/buffered_stream.c.o CMakeFiles/types.dir/image_hyper.c.o CMakeFiles/types.dir/image_bsq.c.o CMakeFiles/types.dir/image_bip.c.o CMakeFiles/types.dir/image_bil.c.o CMakeFiles/types.dir/image_ordinary.c.o CMakeFiles/types.dir/image.c.o
+/usr/bin/ranlib libtypes.a

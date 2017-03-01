@@ -1,0 +1,10 @@
+digraph "GG" {
+node [
+  fontsize = "12"
+];
+    "node16" [ label="dwt" shape="diamond"];
+    "node41" [ label="/usr/local/cuda/lib64/libcudart.so" shape="ellipse"];
+    "node16" -> "node41" // dwt -> /usr/local/cuda/lib64/libcudart.so
+    "node42" [ label="/usr/lib/aarch64-linux-gnu/libcuda.so" shape="ellipse"];
+    "node16" -> "node42" // dwt -> /usr/lib/aarch64-linux-gnu/libcuda.so
+}

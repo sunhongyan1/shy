@@ -1,0 +1,2 @@
+/usr/bin/ar qc libconfig.a  CMakeFiles/config.dir/parameters.c.o CMakeFiles/config.dir/ini.c.o CMakeFiles/config.dir/arguments.c.o CMakeFiles/config.dir/init_device.c.o
+/usr/bin/ranlib libconfig.a

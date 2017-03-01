@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfile_access.a  CMakeFiles/file_access.dir/file_access.c.o
+/usr/bin/ranlib libfile_access.a

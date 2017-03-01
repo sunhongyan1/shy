@@ -1,0 +1,12 @@
+digraph "GG" {
+node [
+  fontsize = "12"
+];
+    "node28" [ label="tier2" shape="diamond"];
+    "node1" [ label="decoder" shape="house"];
+    "node1" -> "node28" // tier2 -> decoder
+    "node0" [ label="encoder" shape="house"];
+    "node0" -> "node28" // tier2 -> encoder
+    "node3" [ label="jp2decoder" shape="house"];
+    "node3" -> "node28" // tier2 -> jp2decoder
+}

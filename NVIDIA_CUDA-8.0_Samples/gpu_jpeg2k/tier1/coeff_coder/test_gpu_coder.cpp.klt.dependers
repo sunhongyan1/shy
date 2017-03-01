@@ -1,0 +1,16 @@
+digraph "GG" {
+node [
+  fontsize = "12"
+];
+    "node40" [ label="klt" shape="diamond"];
+    "node1" [ label="decoder" shape="house"];
+    "node1" -> "node40" // klt -> decoder
+    "node0" [ label="encoder" shape="house"];
+    "node0" -> "node40" // klt -> encoder
+    "node19" [ label="preprocessing" shape="diamond"];
+    "node19" -> "node40" // klt -> preprocessing
+    "node1" -> "node19" // preprocessing -> decoder
+    "node0" -> "node19" // preprocessing -> encoder
+    "node3" [ label="jp2decoder" shape="house"];
+    "node3" -> "node19" // preprocessing -> jp2decoder
+}
